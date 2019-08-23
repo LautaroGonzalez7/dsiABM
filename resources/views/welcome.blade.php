@@ -10,7 +10,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Laravel {{ app()->version() }}</title>
+        <title>Prestamos TICs</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -90,45 +90,32 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
+{{--   @if (Route::has('login'))
+      <div class="top-right links">
+          @if (Auth::check())
+              <a href="{{ url('/home') }}">Home</a>
+          @else
+              <a href="{{ url('/login') }}">Login</a>
+              <a href="{{ url('/register') }}">Register</a>
+          @endif
+      </div>
+  @endif
+--}}
+  <div class="content">
+      <div class="title m-b-md">
+          Prestamos TICs
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                    <p class="versioninfo">Version {{ app()->version() }}</p>
-                </div>
+      </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-
-                <div class="foundation_button_test">
-                    <p class="framwork_title">Bulma v0.7.4</p>
-                    <p class="framwork_title">Bulma Extension v4.0.2</p>
-
-                    <div class="block">
-                        <a class="button is-primary">Primary</a>
-                        <a class="button is-info">Info</a>
-                        <a class="button is-success">Success</a>
-                        <a class="button is-warning">Warning</a>
-                        <a class="button is-danger">Danger</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+      <div class="links">
+          <a href="/altaElementos">Carga de elementos TICs</a>
+          <a href="/altaPrestamos">Carga de prestamos</a>
+          <a href="/listaPrestamos">Lista de Prestamos</a>
+          <a href="/listaElementos">Lista de elementos</a>
+          <a href="https://github.com/laravel/laravel">Consulta</a>
+      </div>
+  </div>
+</div>
+</body>
 
 </html>
