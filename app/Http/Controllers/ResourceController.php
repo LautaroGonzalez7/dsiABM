@@ -14,7 +14,8 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        //
+        $resource = Resources::all();
+        return response()->json($resource);
     }
 
     /**
@@ -35,12 +36,9 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        //Instanciamos la clase Pokemons
         $resource = new Resources();
-        //Declaramos el nombre con el nombre enviado en el request
         $resource->name = $request->name;
         $resource->category_id = $request->category_id;
-        //Guardamos el cambio en nuestro modelo
         $resource->save();
     }
     /**
@@ -51,7 +49,6 @@ class ResourceController extends Controller
      */
     public function show($id)
     {
-        //Solicitamos al modelo el Pokemon con el id solicitado por GET.
         return Resources::where('id', $id)->get();
     }
 

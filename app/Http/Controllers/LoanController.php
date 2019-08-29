@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Categories;
+use App\Loans;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class LoanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Categories::all();
-        return response()->json($category);
+        $loan = Loans::all();
+        return response()->json($loan);
     }
 
     /**
@@ -36,9 +36,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Categories();
-        $category->name = $request->name;
-        $category->save();
+        $loan = new Loans();
+        $loan->user_id = $request->user_id;
+        $loan->resource_id = $request->resource_id;
+        $loan->save();
     }
     /**
      * Display the specified resource.
@@ -48,7 +49,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return Categories::where('id', $id)->get();
+        return Loans::where('id', $id)->get();
     }
 
     /**
@@ -71,8 +72,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Categories::find($id);
-        $category->update($request->all());
+        $loan = Loans::find($id);
+        $loan->update($request->all());
     }
 
     /**

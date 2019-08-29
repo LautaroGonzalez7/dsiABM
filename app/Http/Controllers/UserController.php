@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Categories;
+use App\User;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Categories::all();
-        return response()->json($category);
+        $user = User::all();
+        return response()->json($user);
     }
 
     /**
@@ -36,9 +36,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Categories();
-        $category->name = $request->name;
-        $category->save();
+        $user = new User();
+        $user->name = $request->name;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->save();
     }
     /**
      * Display the specified resource.
@@ -48,7 +51,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return Categories::where('id', $id)->get();
+        return User::where('id', $id)->get();
     }
 
     /**
@@ -71,8 +74,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Categories::find($id);
-        $category->update($request->all());
+        $user = User::find($id);
+        $user->update($request->all());
     }
 
     /**
