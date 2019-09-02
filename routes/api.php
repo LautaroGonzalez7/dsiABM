@@ -21,3 +21,4 @@ Route::resource('resources', 'ResourceController');
 Route::resource('categories', 'CategoryController');
 Route::resource('loans', 'LoanController');
 Route::resource('users', 'UserController');
+
