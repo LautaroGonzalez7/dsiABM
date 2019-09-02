@@ -8,7 +8,14 @@ window._ = require('lodash');
  */
 
 try {
+
     window.$ = window.jQuery = require('jquery');
+
+
+    window.Popper = require('popper.js').default;
+    window.$ = window.jQuery = require('jquery');
+
+    require('bootstrap');
 
 } catch (e) {}
 
@@ -48,5 +55,10 @@ if (token) {
 
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',
+
 //     key: 'your-pusher-key'
+
+//     key: process.env.MIX_PUSHER_APP_KEY,
+//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+//     encrypted: true
 // });
