@@ -1,8 +1,9 @@
 @extends('layouts.abm')
 @section('content')
+    <head>
+        <title>Prestamos TICs</title>
+    </head>
     <body>
-
-
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
         <div class="wrapper wrapper--w790">
             <div class="card card-5">

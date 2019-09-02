@@ -1,5 +1,9 @@
 @extends('layouts.abm')
 @section('content')
+    <head>
+        <title>Prestamos TICs</title>
+    </head>
+   <body>
     <section class="hero is-primary">
         <div class="hero-body">
             <div class="container">
@@ -47,5 +51,10 @@
     </table>
             </div>
         </div>
-
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+   </body>
 @endsection

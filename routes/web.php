@@ -20,6 +20,9 @@ Route::get('/altaElementos', function () {
 Route::get('/listaElementos', function () {
     return view('lists/listaElementos');
 });
+Route::get('/altaPrestamos', function () {
+    return view('forms/altaPrestamos');
+});
 
 Auth::routes();
 
