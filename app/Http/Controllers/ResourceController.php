@@ -25,7 +25,7 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        //
+        return view ('resources/create');
     }
 
     /**
@@ -60,7 +60,7 @@ class ResourceController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('resources/edit');
     }
 
     /**

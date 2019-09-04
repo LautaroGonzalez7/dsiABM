@@ -1654,20 +1654,6 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v4.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/debug.git",
-                "reference": "527887c3858a2462b0137662c74837288b998ee3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/527887c3858a2462b0137662c74837288b998ee3",
-                "reference": "527887c3858a2462b0137662c74837288b998ee3",
-            "time": "2019-08-20T14:07:54+00:00"
-        },
-        {
-            "name": "symfony/debug",
             "version": "v4.3.4",
             "source": {
                 "type": "git",

@@ -25,7 +25,8 @@ class LoanController extends Controller
      */
     public function create()
     {
-        //
+         return view('loans/create');
+
     }
 
     /**
@@ -60,7 +61,7 @@ class LoanController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('loans/edit');
     }
 
     /**
