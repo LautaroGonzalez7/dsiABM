@@ -14,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return response()->json($user);
+        $users = User::all();
+        return view('users/index',['users' => $users]);
     }
 
     /**
@@ -42,6 +42,8 @@ class UserController extends Controller
         $user->phone = $request->phone;
         $user->email = $request->email;
         $user->save();
+        $users = User::all();
+        return view('users/index',['users' => $users]);
     }
     /**
      * Display the specified resource.
@@ -62,7 +64,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('users/edit',['user' => $user]);
     }
 
     /**
@@ -76,6 +79,8 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->update($request->all());
+        $users = User::all();
+        return view('users/index',['users' => $users]);
     }
 
     /**
@@ -86,6 +91,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        $users = User::all();
+        return view('users/index',['users' => $users]);
     }
 }

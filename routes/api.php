@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('resources', 'ResourceController');
-Route::resource('categories', 'CategoryController');
+//Route::resource('categories', 'CategoryController');
 Route::resource('loans', 'LoanController');
 Route::resource('users', 'UserController');
 

@@ -14,27 +14,26 @@
                     <form method="POST" action="/loans">
                         @csrf
                         <div class="form-row m-b-55">
-                            <div class="name">ID Recurso</div>
-                            <div class="value">
-                                <div class="row row-space">
-                                    <input class="input--style-5" type="text" name="resource_id">
-                                </div>
-                            </div>
+                            <div class="name">Cliente</div>
+                            <select name="user_id" class="form-control">
+                                @foreach($users as $user)
+                                    <option value={{$user->id}}>{{ucfirst($user->name)}}</option>
+                                @endforeach
+                            </select>
                         </div>
-                       <div class="form-row m-b-55">
-                                                  <div class="name">ID Usuario</div>
-                                                   <div class="value">
-                                                       <div class="row row-space">
-                                                           <input class="input--style-5" type="text" name="user_id">
-                                                       </div>
-                                                   </div>
-                                               </div>
-
+                        <div class="form-row m-b-55">
+                            <div class="name">Recurso</div>
+                            <select name="resource_id" class="form-control">
+                                @foreach($resources as $resource)
+                                    <option value={{$resource->id}}>{{ucfirst($resource->name)}}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <button class="btn btn--radius-2 btn--red" type="submit">Cargar Prestamo</button>
-                    </form>
                 </div>
+                <button class="btn btn--radius-2 btn--red" type="submit">Cargar Recurso</button>
+                </form>
             </div>
         </div>
+    </div>
     </div>
 @endsection

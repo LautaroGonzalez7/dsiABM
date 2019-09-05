@@ -16,8 +16,8 @@ class CreateResources extends Migration
         Schema::create('resources', function (Blueprint $table) {
             $table->Increments('id');
             $table->string('name', 255);
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->integer('category_id')->unsigned()->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null')->onUpdate('cascade');
             $table->timestamps();
         });
     }

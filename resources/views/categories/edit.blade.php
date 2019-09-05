@@ -12,14 +12,14 @@
                 </div>
                 <div class="card-body">
                     <form method="POST" action="/categories/{{$category->id}}">
+                        @csrf
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        @csrf
                         <div class="form-row m-b-55">
                             <div class="name">Name</div>
                             <div class="value">
                                 <div class="row row-space">
-                                    <input class="input--style-5" type="text" name="first_name">
+                                    <input class="input--style-5" type="text" name="name">
                                 </div>
                             </div>
                         </div>

@@ -98,7 +98,8 @@
       <div class="links">
           <a href="/categories/create">Carga de categorias</a>
           <a href="/altaPrestamos">Carga de prestamos</a>
-          <a href="/listaPrestamos">Lista de Prestamos</a>
+          <a href="/listaPrestamos">Lista de prestamos</a>
+          <a href="/listaCategorias">Lista de categorias</a>
           <a href="/listaElementos">Lista de elementos</a>
           <a href="https://github.com/laravel/laravel">Consulta</a>
       </div>

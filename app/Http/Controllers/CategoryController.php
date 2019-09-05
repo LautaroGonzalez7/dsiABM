@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Categories::all();
-        return response()->json($category);
+        $categories = Categories::all();
+        return view('categories/index',['categories' => $categories]);
     }
 
     /**
@@ -38,7 +38,9 @@ class CategoryController extends Controller
     {
         $category = new Categories();
         $category->name = $request->name;
-        $category->save();  //echo"LE ESTOY PEGANDO A STORE";
+        $category->save();
+        $categories = Categories::all();
+        return view('categories/index',['categories' => $categories]);
     }
     /**
      * Display the specified resource.
@@ -48,7 +50,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return Categories::where('id', $id)->get();
+
     }
 
     /**
@@ -59,7 +61,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Categories::find($id);
+        return view('categories/edit',['category' => $category]);
     }
 
     /**
@@ -83,6 +86,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Categories::find($id);
+        $category->delete();
+        $categories = Categories::all();
+        return view('categories/index',['categories' => $categories]);
     }
 }

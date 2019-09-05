@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
 use App\Resources;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,9 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        $resource = Resources::all();
-        return response()->json($resource);
+        $resources = Resources::all();
+        $categories = Categories::all();
+        return view('resources/index',['categories' => $categories,'resources' => $resources]);
     }
 
     /**
@@ -25,7 +27,8 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        return view ('resources/create');
+        $categories = Categories::all();
+        return view('resources/create',['categories' => $categories]);
     }
 
     /**
@@ -40,6 +43,8 @@ class ResourceController extends Controller
         $resource->name = $request->name;
         $resource->category_id = $request->category_id;
         $resource->save();
+        $resources = Resources::all();
+        return view('resources/index',['resources' => $resources]);
     }
     /**
      * Display the specified resource.
@@ -60,7 +65,9 @@ class ResourceController extends Controller
      */
     public function edit($id)
     {
-        return view('resources/edit');
+        $resource = Resources::find($id);
+        $categories = Categories::all();
+        return view('resources/edit',['categories' => $categories,'resource' => $resource]);
     }
 
     /**
@@ -74,6 +81,8 @@ class ResourceController extends Controller
     {
         $resource = Resources::find($id);
         $resource->update($request->all());
+        $resources = Resources::all();
+        return view('resources/index',['resources' => $resources]);
     }
 
     /**
@@ -84,6 +93,9 @@ class ResourceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $resource = Resources::find($id);
+        $resource->delete();
+        $resources = Resources::all();
+        return view('resources/index',['resources' => $resources]);
     }
 }
