@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Loans extends Model
 {
-    protected $fillable = ['user_id','resource_id'];
+    protected $fillable = ['customer_id','resource_id','since','until'];
     public $timestamps = false;
 }

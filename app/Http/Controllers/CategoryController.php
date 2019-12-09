@@ -38,9 +38,20 @@ class CategoryController extends Controller
     {
         $category = new Categories();
         $category->name = $request->name;
-        $category->save();
-        $categories = Categories::all();
-        return view('categories/index',['categories' => $categories]);
+
+        $status = true;
+
+        try {
+            $category->save();
+        } catch (\Exception $error) {
+            $status = false;
+        }
+
+        if ($status) {
+            return redirect('categories/index');
+        } else {
+            return Redirect('categories/index')->with(['message' => 'Error! No se pudo agregar.']);
+        }
     }
     /**
      * Display the specified resource.
@@ -75,7 +86,20 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $category = Categories::find($id);
-        $category->update($request->all());
+
+        $status = true;
+
+        try {
+            $category->update($request->all());
+        } catch (\Exception $error) {
+            $status = false;
+        }
+
+        if ($status) {
+            return redirect('categories/index');
+        } else {
+            return Redirect('categories/index')->with(['message' => 'Error! No se pudo modificar.']);
+        }
     }
 
     /**
@@ -88,7 +112,6 @@ class CategoryController extends Controller
     {
         $category = Categories::find($id);
         $category->delete();
-        $categories = Categories::all();
-        return view('categories/index',['categories' => $categories]);
+        return redirect('categories/index');
     }
 }

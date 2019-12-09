@@ -1,20 +1,16 @@
-@extends('layouts.app')
-
+@extends('layouts.abm')
 @section('content')
-    <div class="container">
-        <div class="columns is-marginless is-centered">
-            <div class="column is-7">
-                <nav class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            Dashboard
-                        </p>
-                    </header>
-
-                    <div class="card-content">
-                        You are logged in!
-                    </div>
-                </nav>
+    <div class="page-wrapper p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Sistema de TICs</h2>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Este sistema permite administrar los préstamos y reservas de los recursos de TICs.
+                    </p>
+                </div>
             </div>
         </div>
     </div>

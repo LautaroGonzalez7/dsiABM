@@ -3,7 +3,7 @@
     <div class="page-wrapper p-t-45 p-b-50">
         <div class="columns is-marginless is-centered">
             <div class="column is-5">
-                <a href="{{route('categories.create')}}" class="btn btn-info">Crear categoría</a>
+                <a href="{{route('customers.create')}}" class="btn btn-info">Crear cliente</a>
                 <br><br>
                 @if (Session::has('message'))
                     <div class="alert alert-danger">{{Session::get('message')}}</div>
@@ -14,16 +14,20 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($categories as $category)
+                        @foreach($customers as $customer)
                             <tr>
-                                <td>{{ $category->id }}</td>
-                                <td>{{ $category->name }}</td>
-                                <td width="10%"><a href="{{route('categories.edit', ['id' => $category->id])}}" class="btn btn-warning">Editar</a></td>
+                                <td>{{ $customer->id }}</td>
+                                <td>{{ $customer->name }}</td>
+                                <td>{{ $customer->lastname }}</td>
+                                <td width="10%"><a href="{{route('customers.edit', ['id' => $customer->id])}}"
+                                                   class="btn btn-warning">Editar</a></td>
                                 <td width="10%">
-                                    <form method="POST" action="{{route('categories.destroy', ['id' => $category->id])}}">
+                                    <form method="POST"
+                                          action="{{route('customers.destroy', ['id' => $customer->id])}}">
                                         @csrf
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

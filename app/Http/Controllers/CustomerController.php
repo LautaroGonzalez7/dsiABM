@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Loans;
-use App\Resources;
 use App\Customers;
 use Illuminate\Http\Request;
 
-class LoanController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,8 @@ class LoanController extends Controller
      */
     public function index()
     {
-        $loans = Loans::all();
-        $resources = Resources::all();
         $customers = Customers::all();
-        return view('loans/index', ['loans' => $loans, 'resources' => $resources, 'customers' => $customers]);
+        return view('customers/index', ['customers' => $customers]);
     }
 
     /**
@@ -29,15 +25,7 @@ class LoanController extends Controller
      */
     public function create()
     {
-        $resources = Resources::all();
-        $customers = Customers::all();
-
-        if (!isset($resources[0]) || !isset($customers[0])){
-            return redirect('loans/index');
-        }else{
-            return view('loans/create', ['resources' => $resources, 'customers' => $customers]);
-        }
-
+        return view('customers/create');
     }
 
     /**
@@ -48,25 +36,29 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
-        $loan = new Loans();
-        $loan->customer_id = $request->customer_id;
-        $loan->resource_id = $request->resource_id;
-        $loan->since = $request->since;
-        $loan->until = $request->until;
+        $customer = new Customers();
+        $customer->name = $request->name;
+        $customer->lastname = $request->lastname;
+        $customer->dni = $request->dni;
+        $customer->legajo = $request->legajo;
+        $customer->phone = $request->phone;
+        $customer->email = $request->email;
+        $customer->address = $request->address;
 
         $status = true;
 
         try {
-            $loan->save();
+            $customer->save();
         } catch (\Exception $error) {
             $status = false;
         }
 
         if ($status) {
-            return redirect('loans/index');
+            return redirect('customers/index');
         } else {
-            return Redirect('loans/index')->with(['message' => 'Error! No se pudo agregar.']);
+            return Redirect('customers/index')->with(['message' => 'Error! No se pudo agregar.']);
         }
+
     }
 
     /**
@@ -77,7 +69,7 @@ class LoanController extends Controller
      */
     public function show($id)
     {
-        return Loans::where('id', $id)->get();
+
     }
 
     /**
@@ -88,10 +80,8 @@ class LoanController extends Controller
      */
     public function edit($id)
     {
-        $loan = Loans::find($id);
-        $resources = Resources::all();
-        $customers = Customers::all();
-        return view('loans/edit', ['loan' => $loan, 'resources' => $resources, 'customers' => $customers]);
+        $customer = Customers::find($id);
+        return view('customers/edit', ['customer' => $customer]);
     }
 
     /**
@@ -103,20 +93,20 @@ class LoanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $loan = Loans::find($id);
+        $customer = Customers::find($id);
 
         $status = true;
 
         try {
-            $loan->update($request->all());
+            $customer->update($request->all());
         } catch (\Exception $error) {
             $status = false;
         }
 
         if ($status) {
-            return redirect('loans/index');
+            return redirect('customers/index');
         } else {
-            return Redirect('loans/index')->with(['message' => 'Error! No se pudo modificar.']);
+            return Redirect('customers/index')->with(['message' => 'Error! No se pudo modificar.']);
         }
     }
 
@@ -128,8 +118,8 @@ class LoanController extends Controller
      */
     public function destroy($id)
     {
-        $loan = Loans::find($id);
-        $loan->delete();
-        return redirect('loans/index');
+        $customer = Customers::find($id);
+        $customer->delete();
+        return redirect('customers/index');
     }
 }

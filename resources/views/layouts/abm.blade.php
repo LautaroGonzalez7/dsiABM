@@ -25,7 +25,7 @@
     <nav class="navbar has-shadow">
         <div class="container">
             <div class="navbar-brand">
-                <a href="{{ url('/') }}" class="navbar-item">Prestamos TICs</a>
+                <a href="{{ url('/') }}" class="navbar-item">Sistema de TICs</a>
 
                 <div class="navbar-burger burger" data-target="navMenu">
                     <span></span>
@@ -36,17 +36,45 @@
 
             <div class="navbar-menu" id="navMenu">
                 <div class="navbar-start"></div>
-
-
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" href="#">Recursos</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="{{route('resources.index')}}">Ver</a>
+                            <a class="navbar-item" href="{{route('resources.create')}}">Crear</a>
+                        </div>
+                    </div>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" href="#">Categorías</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="{{route('categories.index')}}">Ver</a>
+                            <a class="navbar-item" href="{{route('categories.create')}}">Crear</a>
+                        </div>
+                    </div>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" href="#">Clientes</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="{{route('customers.index')}}">Ver</a>
+                            <a class="navbar-item" href="{{route('customers.create')}}">Crear</a>
+                        </div>
+                    </div>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" href="#">Préstamos</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="{{route('loans.index')}}">Ver</a>
+                            <a class="navbar-item" href="{{route('loans.create')}}">Crear</a>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
     </nav>
 </div>
 @yield('content')
-<nav class="navbar  ">
+<nav class="navbar bg-nav-footer">
     <div class ="has-text-centered">
-        <h7>UTN San Francisco Cordoba - 2019 Diseño de Sistemas </h7>
+        <h7>UTN San Francisco Córdoba - 2019 Diseño de Sistemas - Sistema de TICs</h7>
     </div>
 </nav>
 </body>

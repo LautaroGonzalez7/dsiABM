@@ -729,6 +729,19 @@ input {
 /* ==========================================================================
    #CARD
    ========================================================================== */
+.unstyled {
+  -webkit-appearance: none;
+}
+.unstyled::-webkit-inner-spin-button,
+.unstyled::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+}
+
+.bg-nav-footer{
+  background: #222;
+  color: #fff;
+}
+
 .card {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -740,10 +753,11 @@ input {
   background: #fff;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  border-radius: 10px;
+  border-radius: 10px !important;
   -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  border: none !important;
 }
 
 .card-5 .card-heading {
